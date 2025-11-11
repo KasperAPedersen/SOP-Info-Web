@@ -24,6 +24,13 @@ function Sidebar({ activeView, onViewChange }) {
                     <span className="icon">📋</span>
                     <span className="label">Se Fravær</span>
                 </button>
+                <button
+                    className={`sidebar-item ${activeView === 'dev' ? 'active' : ''}`}
+                    onClick={() => onViewChange('dev')}
+                >
+                    <span className="icon">⚙️</span>
+                    <span className="label">Dev</span>
+                </button>
             </nav>
         </aside>
     )
