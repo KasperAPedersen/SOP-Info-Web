@@ -1,0 +1,24 @@
+{
+  "name": "sop-info-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KasperAPedersen/SOP-Info-Web.git"
+  },
+  "author": "KasperAPedersen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KasperAPedersen/SOP-Info-Web/issues"
+  },
+  "homepage": "https://github.com/KasperAPedersen/SOP-Info-Web#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="dashboard-container">
+    <nav>
+        <h1>Admin Dashboard</h1>
+        <div>
+            <span id="username"></span>
+            <button id="logoutBtn">Log ud</button>
+        </div>
+    </nav>
+    <div class="dashboard-content">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" class="menu-item active" data-section="messages">Send besked</a></li>
+                <li><a href="#" class="menu-item" data-section="absences">Se fravær</a></li>
+            </ul>
+        </aside>
+        <main id="content">
+            <div id="messages-section" class="section active">
+                <h2>Send ny besked</h2>
+                <form id="messageForm">
+                    <input type="text" id="messageTitle" placeholder="Titel" required>
+                    <textarea id="messageContent" placeholder="Besked" rows="5" required></textarea>
+                    <button type="submit">Send besked</button>
+                </form>
+                <div id="messageError" class="error"></div>
+                <div id="messageSuccess" class="success"></div>
+            </div>
+
+            <div id="absences-section" class="section">
+                <h2>Fraværsoversigt</h2>
+                <div class="absence-table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Bruger</th>
+                            <th>Dato</th>
+                            <th>Type</th>
+                            <th>Besked</th>
+                            <th>Status</th>
+                            <th>Handling</th>
+                        </tr>
+                        </thead>
+                        <tbody id="absenceTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 20px;">Indlæser...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+</div>
+<script src="dashboard.js"></script>
+</body>
+</html>
