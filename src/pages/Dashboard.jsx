@@ -6,6 +6,8 @@ import MessageForm from '../components/MessageForm'
 import AbsenceTable from '../components/AbsenceTable'
 import CreateUserForm from '../components/CreateUserForm'
 import '../styles/Dashboard.css'
+import AttendanceTable from "../components/AttendanceTable.jsx";
+import QrCodeViewer from "../components/QrCodeViewer.jsx";
 
 function Dashboard() {
     const { user: _user } = useContext(AuthContext)
@@ -21,7 +23,6 @@ function Dashboard() {
                 credentials: 'include'
             })
             const data = await response.json()
-            console.log(data);
             if (data.success) {
                 setUserInitStatus('✓ Users initialized successfully')
             } else {
@@ -109,6 +110,18 @@ function Dashboard() {
                     <div className="view-content">
                         <h2>Opret bruger</h2>
                         <CreateUserForm />
+                    </div>
+                )
+            case 'attendance':
+                return (
+                    <div className="view-content">
+                        <AttendanceTable />
+                    </div>
+                )
+            case 'qr':
+                return (
+                    <div className="view-content">
+                        <QrCodeViewer />
                     </div>
                 )
             default:

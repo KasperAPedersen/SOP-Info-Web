@@ -22,14 +22,28 @@ function Sidebar({ activeView, onViewChange }) {
                     onClick={() => onViewChange('messages')}
                 >
                     <span className="icon">📧</span>
-                    <span className="label">Send Besked</span>
+                    <span className="label">Send besked</span>
                 </button>
                 <button
                     className={`sidebar-item ${activeView === 'absences' ? 'active' : ''}`}
                     onClick={() => onViewChange('absences')}
                 >
                     <span className="icon">📋</span>
-                    <span className="label">Se Fravær</span>
+                    <span className="label">Se fravær</span>
+                </button>
+                <button
+                    className={`sidebar-item ${activeView === 'attendance' ? 'active' : ''}`}
+                    onClick={() => onViewChange('attendance')}
+                >
+                    <span className="icon">📋</span>
+                    <span className="label">Se tilstedeværende</span>
+                </button>
+                <button
+                    className={`sidebar-item ${activeView === 'qr' ? 'active' : ''}`}
+                    onClick={() => onViewChange('qr')}
+                >
+                    <span className="icon">📋</span>
+                    <span className="label">Se QR</span>
                 </button>
                 <button
                     className={`sidebar-item ${activeView === 'dev' ? 'active' : ''}`}

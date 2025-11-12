@@ -1,0 +1,68 @@
+.attendance-table-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-table thead {
+    background: #2c3e50;
+    color: white;
+}
+
+.attendance-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.attendance-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.attendance-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.user-cell {
+    font-weight: 500;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-present {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-absent {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.attendance-loading,
+.attendance-error,
+.attendance-empty {
+    text-align: center;
+    padding: 40px;
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+.attendance-error {
+    color: #e74c3c;
+}
