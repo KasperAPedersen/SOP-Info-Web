@@ -3,8 +3,9 @@ import api from '../services/api'
 import '../styles/MessageForm.css'
 
 function CreateUserForm() {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
@@ -16,8 +17,20 @@ function CreateUserForm() {
         setSuccess(false)
         setLoading(true)
 
-        if (name.trim().length < 2) {
-            setError('Navn skal være mindst 2 tegn')
+        if (firstName.trim().length < 2) {
+            setError('Fornavn skal være mindst 2 tegn')
+            setLoading(false)
+            return
+        }
+
+        if (lastName.trim().length < 2) {
+            setError('Efternavn skal være mindst 2 tegn')
+            setLoading(false)
+            return
+        }
+
+        if (username.trim().length < 3) {
+            setError('Brugernavn skal være mindst 3 tegn')
             setLoading(false)
             return
         }
@@ -29,15 +42,17 @@ function CreateUserForm() {
         }
 
         try {
-            await api.post('/user', {
-                name: name.trim(),
-                email: email.trim(),
+            await api.post('/user/new', {
+                firstName: firstName.trim(),
+                lastName: lastName.trim(),
+                username: username.trim(),
                 password: password.trim()
             })
 
             setSuccess(true)
-            setName('')
-            setEmail('')
+            setFirstName('')
+            setLastName('')
+            setUsername('')
             setPassword('')
 
             setTimeout(() => setSuccess(false), 3000)
@@ -56,26 +71,39 @@ function CreateUserForm() {
                 {success && <div className="alert alert-success">Bruger oprettet!</div>}
 
                 <div className="form-group">
-                    <label htmlFor="name">Navn</label>
+                    <label htmlFor="firstName">Fornavn</label>
                     <input
-                        id="name"
+                        id="firstName"
                         type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Indtast navn..."
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        placeholder="Indtast fornavn..."
                         maxLength={100}
                         required
                     />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="lastName">Efternavn</label>
                     <input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Indtast email..."
+                        id="lastName"
+                        type="text"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        placeholder="Indtast efternavn..."
+                        maxLength={100}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="username">Brugernavn</label>
+                    <input
+                        id="username"
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Indtast brugernavn..."
                         maxLength={100}
                         required
                     />
