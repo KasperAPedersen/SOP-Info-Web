@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import MessageForm from '../components/MessageForm'
 import AbsenceTable from '../components/AbsenceTable'
+import CreateUserForm from '../components/CreateUserForm'
 import '../styles/Dashboard.css'
 
 function Dashboard() {
@@ -101,6 +102,13 @@ function Dashboard() {
                                 {messageInitStatus && <p className="dev-status">{messageInitStatus}</p>}
                             </div>
                         </div>
+                    </div>
+                )
+            case 'create-user':
+                return (
+                    <div className="view-content">
+                        <h2>Opret bruger</h2>
+                        <CreateUserForm />
                     </div>
                 )
             default:

@@ -11,6 +11,13 @@ function Sidebar({ activeView, onViewChange }) {
         <aside className="sidebar">
             <nav className="sidebar-nav">
                 <button
+                    className={`sidebar-item ${activeView === 'create-user' ? 'active' : ''}`}
+                    onClick={() => onViewChange('create-user')}
+                >
+                    <span className="icon">👤</span>
+                    <span className="label">Opret bruger</span>
+                </button>
+                <button
                     className={`sidebar-item ${activeView === 'messages' ? 'active' : ''}`}
                     onClick={() => onViewChange('messages')}
                 >
