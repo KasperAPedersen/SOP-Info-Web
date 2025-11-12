@@ -31,7 +31,7 @@ function Login() {
         }
 
         try {
-            const response = await api.post('/user/authenticate', {
+            const response = await api.post('/admin/authenticate', {
                 username: cleanUsername,
                 password: cleanPassword
             })

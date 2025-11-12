@@ -9,7 +9,7 @@ import '../styles/Dashboard.css'
 
 function Dashboard() {
     const { user: _user } = useContext(AuthContext)
-    const [activeView, setActiveView] = useState('messages')
+    const [activeView, setActiveView] = useState('absences')
     const [userInitStatus, setUserInitStatus] = useState('')
     const [messageInitStatus, setMessageInitStatus] = useState('')
 
