@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
+import Qr from './pages/Qr'
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/login" element={<Login />} />
+                    <Route path="/qr" element={<Qr />} />
                     <Route path="/dashboard" element={
                         <ProtectedRoute>
                             <Dashboard />
