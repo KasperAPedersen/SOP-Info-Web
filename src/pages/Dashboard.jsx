@@ -154,12 +154,6 @@ function Dashboard() {
                         <AttendanceTable />
                     </div>
                 )
-            case 'qr':
-                return (
-                    <div className="view-content">
-                        <QrCodeViewer />
-                    </div>
-                )
             default:
                 return null
         }

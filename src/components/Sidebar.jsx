@@ -39,13 +39,6 @@ function Sidebar({ activeView, onViewChange }) {
                     <span className="label">Se tilstedeværende</span>
                 </button>
                 <button
-                    className={`sidebar-item ${activeView === 'qr' ? 'active' : ''}`}
-                    onClick={() => onViewChange('qr')}
-                >
-                    <span className="icon">📋</span>
-                    <span className="label">Se QR</span>
-                </button>
-                <button
                     className={`sidebar-item ${activeView === 'dev' ? 'active' : ''}`}
                     onClick={() => onViewChange('dev')}
                 >
