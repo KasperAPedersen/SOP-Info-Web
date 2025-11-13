@@ -20,10 +20,13 @@ class WebSocketService {
             this.ws.onopen = () => {
                 this.reconnectAttempts = 0
 
-                this.subscribe('absence')
-                this.subscribe('message')
-                this.subscribe('attendence')
-                this.subscribe('qr')
+                this.subscribe('qr') // Always subscribe to qr
+
+                if (token) {
+                    this.subscribe('absence')
+                    this.subscribe('message')
+                    this.subscribe('attendence')
+                }
             }
 
             this.ws.onmessage = (event) => {

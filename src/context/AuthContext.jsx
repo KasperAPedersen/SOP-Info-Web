@@ -15,8 +15,9 @@ export function AuthProvider({ children }) {
         if (token && storedUser) {
             setUser(JSON.parse(storedUser))
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-            websocket.connect(token)
         }
+
+        websocket.connect(token) // Always connect, even if token is null
 
         setLoading(false)
     }, [])
