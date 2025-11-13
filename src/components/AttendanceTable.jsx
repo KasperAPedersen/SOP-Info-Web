@@ -44,7 +44,7 @@ function AttendanceTable() {
 
     const fetchAttendances = async () => {
         try {
-            const response = await api.get('/qr/get/all/attendence')
+            const response = await api.get('/attendence/get/all')
             setAttendances(response.data)
         } catch (error) {
             setError('Kunne ikke hente fremmøde')
