@@ -23,6 +23,7 @@ class WebSocketService {
                 this.subscribe('absence')
                 this.subscribe('message')
                 this.subscribe('attendence')
+                this.subscribe('qr')
             }
 
             this.ws.onmessage = (event) => {

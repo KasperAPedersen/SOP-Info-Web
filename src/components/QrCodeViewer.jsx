@@ -33,9 +33,18 @@ function QrCodeViewer() {
             }
         }
 
+        const handleQrUpdate = async (data) => {
+            if(data.type === 'qr'){
+                setQrCode(data.qrCode)
+            }
+        }
+
         websocket.on('attendence', handleAttendanceUpdate)
+        websocket.on('qr', handleQrUpdate)
+
         return () => {
             websocket.off('attendence', handleAttendanceUpdate)
+            websocket.off('qr', handleQrUpdate)
         }
     }, [])
 

@@ -15,6 +15,9 @@ function AbsenceTable() {
         const handleAbsenceUpdate = (data) => {
 
             setAbsences(prev => {
+                if (data.broadcastType !== 'absence') {
+                    return prev
+                }
                 const filtered = prev.filter(a => a.userId !== data.userId)
 
                 return [...filtered, {
