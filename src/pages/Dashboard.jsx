@@ -14,6 +14,7 @@ function Dashboard() {
     const [activeView, setActiveView] = useState('absences')
     const [userInitStatus, setUserInitStatus] = useState('')
     const [messageInitStatus, setMessageInitStatus] = useState('')
+    const [attendanceResetStatus, setAttendanceResetStatus] = useState('')
 
     const handleUserInit = async () => {
         try {
@@ -51,6 +52,27 @@ function Dashboard() {
         } catch (error) {
             console.error(error)
             setMessageInitStatus('✗ Error: ' + error.message)
+        }
+    }
+
+    const handleAttendanceReset = async () => {
+        try {
+            setAttendanceResetStatus('Resetting attendance...')
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/qr/reset`, {
+                method: 'GET',
+                credentials: 'include'
+            });
+
+            const data = await response.json();
+
+            if(data.success) {
+                setAttendanceResetStatus('Attendance reset successfully');
+            } else {
+                setAttendanceResetStatus('Failed to reset attendance');
+            }
+        } catch(e) {
+            console.error(e)
+            setAttendanceResetStatus()
         }
     }
 
@@ -101,6 +123,20 @@ function Dashboard() {
                                     Run Init
                                 </button>
                                 {messageInitStatus && <p className="dev-status">{messageInitStatus}</p>}
+                            </div>
+
+                            <div className="dev-card">
+                                <div className="dev-card-header">
+                                    <span className="dev-card-icon">📧</span>
+                                    <h3>Reset attendance</h3>
+                                </div>
+                                <p className="dev-card-description">
+                                    Reset attendance of all users to not checked in
+                                </p>
+                                <button onClick={handleAttendanceReset} className="dev-button">
+                                    Run Reset
+                                </button>
+                                {attendanceResetStatus && <p className="dev-status">{attendanceResetStatus}</p>}
                             </div>
                         </div>
                     </div>
