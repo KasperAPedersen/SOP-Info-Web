@@ -58,7 +58,7 @@ function Dashboard() {
     const handleAttendanceReset = async () => {
         try {
             setAttendanceResetStatus('Resetting attendance...')
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/attendence/reset/qr`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/attendance/reset/qr`, {
                 method: 'GET',
                 credentials: 'include'
             });

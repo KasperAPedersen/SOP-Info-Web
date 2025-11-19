@@ -12,7 +12,7 @@ function AttendanceTable() {
         fetchAttendances()
 
         const handleAttendanceUpdate = (data) => {
-            if (data.type === 'attendence') {
+            if (data.type === 'attendance') {
                 setAttendances(prev => {
                     const index = prev.findIndex(a => a.id === data.id)
 
@@ -35,16 +35,16 @@ function AttendanceTable() {
             }
         }
 
-        websocket.on('attendence', handleAttendanceUpdate)
+        websocket.on('attendance', handleAttendanceUpdate)
 
         return () => {
-            websocket.off('attendence', handleAttendanceUpdate)
+            websocket.off('attendance', handleAttendanceUpdate)
         }
     }, [])
 
     const fetchAttendances = async () => {
         try {
-            const response = await api.get('/attendence/get/all')
+            const response = await api.get('/attendance/get/all')
             setAttendances(response.data)
         } catch (error) {
             setError('Kunne ikke hente fremmøde')

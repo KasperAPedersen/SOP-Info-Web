@@ -14,7 +14,7 @@ function QrCodeViewer() {
         setLoading(true)
         setError('')
         try {
-            const response = await api.get('/attendence/get/qr')
+            const response = await api.get('/attendance/get/qr')
             if (response.data.success && response.data.qrCode) {
                 setQrCode(response.data.qrCode)
                 setLastUpdated(new Date())
@@ -32,7 +32,7 @@ function QrCodeViewer() {
         setLoading(true)
         setError('')
         try {
-            const response = await api.get('/attendence/refresh/qr')
+            const response = await api.get('/attendance/refresh/qr')
             if (response.data.success && response.data.qrCode) {
                 setQrCode(response.data.qrCode)
                 setLastUpdated(new Date())

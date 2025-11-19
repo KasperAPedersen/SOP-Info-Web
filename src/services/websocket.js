@@ -25,7 +25,7 @@ class WebSocketService {
                 if (token) {
                     this.subscribe('absence')
                     this.subscribe('message')
-                    this.subscribe('attendence')
+                    this.subscribe('attendance')
                 }
             }
 
